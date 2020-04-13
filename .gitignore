@@ -233,4 +233,5 @@ dist
 ### Project Specific
 /coverage
 /server/build
+/build
 
