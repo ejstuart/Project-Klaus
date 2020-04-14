@@ -1,9 +1,8 @@
 import express from "express";
+import rooms from "./rooms";
 
 const router = express.Router();
 
-router.get('/message', function(req, res, next) {
-    res.json('Welcome To React');
-});
+router.use('/rooms', rooms);
 
 export default router;
