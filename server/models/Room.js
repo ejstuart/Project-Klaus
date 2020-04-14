@@ -9,7 +9,10 @@ const roomSchema = new Schema({
         type: String,
         default: () => nanoid()
     },
-    name: String,
+    name: {
+        type: String,
+        required: true
+    },
     keys: [String],
     messages: [String]
 }, {timestamps: true});
