@@ -3,11 +3,18 @@ import path from "path";
 import logger from "morgan";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
-import index from "./routes/index";
+import api from "./routes/api";
 import debugConstructor from "debug";
+import mongoose from "mongoose";
+import config from "./config";
 
 const debug = debugConstructor('klaus:server');
 const app = express();
+
+mongoose.connect(config.DB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -19,9 +26,9 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
-app.use('/api', index);
+app.use('/api', api);
 app.get('*', (req, res) => {
     res.sendFile('build/index.html', { root: global });
 });
