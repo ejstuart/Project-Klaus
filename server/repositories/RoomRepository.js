@@ -1,4 +1,5 @@
 import Room from "../models/Room";
+import User from "../models/User";
 
 class RoomRepository{
     constructor(model) {
@@ -19,12 +20,8 @@ class RoomRepository{
         return this.model.findById(id);
     }
 
-    findAll(){
-        return this.model.find();
-    }
-
-    deleteById(id){
-        return this.model.findByIdAndDelete(id);
+    findUsers(id){
+        return User.find({"room": id});
     }
 
     updateById(id, object){

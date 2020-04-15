@@ -13,6 +13,11 @@ const roomSchema = new Schema({
         type: String,
         required: true
     },
+    locked: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
     keys: [String],
     messages: [String]
 }, {timestamps: true});
