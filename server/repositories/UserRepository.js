@@ -8,11 +8,11 @@ class UserRepository{
     create(name, room){
         const user = new this.model({
             name,
-            room: room._id ?? room,
+            room: room._id ? room._id : room,
             identityKey: null
         });
 
-        return room.save();
+        return user.save();
     }
 
     findById(id){
