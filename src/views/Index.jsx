@@ -5,7 +5,7 @@ import logo from "../assets/images/logo.svg";
 import MainButton from "../components/index/MainButton";
 import RoomCodeInput from "../components/index/RoomCodeInput";
 
-class Index extends React.Component{
+class Index extends React.Component {
     constructor(props) {
         super(props);
 
@@ -17,11 +17,11 @@ class Index extends React.Component{
 
     }
 
-    handleRoomCodeInput(event){
+    handleRoomCodeInput(event) {
         this.setState({roomCode: event.target.value});
     }
 
-    render(){
+    render() {
         return (
             <header className="masthead d-flex">
                 <Container className="text-center my-auto">
@@ -34,7 +34,7 @@ class Index extends React.Component{
                     </div>
                 </Container>
             </header>
-        )
+        );
     }
 }
 

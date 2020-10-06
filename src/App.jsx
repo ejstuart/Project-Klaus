@@ -5,15 +5,20 @@ import Index from "./views/Index";
 
 import "./assets/scss/blk-design-system-react.scss";
 import "./assets/css/nucleo-icons.css";
+import "./assets/scss/snow.scss";
+import Snow from "./components/common/Snow";
 
 class App extends Component {
     render() {
         return (
-            <BrowserRouter>
-                <Switch>
-                    <Route path='/' component={Index}/>
-                </Switch>
-            </BrowserRouter>
+            <>
+                <Snow number={70}/>
+                <BrowserRouter>
+                    <Switch>
+                        <Route path='/' component={Index}/>
+                    </Switch>
+                </BrowserRouter>
+            </>
         );
     }
 }
