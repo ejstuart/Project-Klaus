@@ -8,6 +8,25 @@ export default class RoomCodeInput extends React.Component {
 
         this.onRoomCodeFocus = this.onRoomCodeFocus.bind(this);
         this.onRoomCodeBlur = this.onRoomCodeBlur.bind(this);
+        this.onRoomCodeChange = this.onRoomCodeChange.bind(this);
+    }
+
+    formatRoomCode(code){
+        if (code.length > 4){
+            return code.substr(0, 4) + "-" + code.substr(4, 4);
+        }
+        return code;
+    }
+
+    recoverRoomCode(code){
+        return code.split("-").join("");
+    }
+
+    onRoomCodeChange(event){
+        event.target.value = this.recoverRoomCode(event.target.value);
+        if (event.target.validity.valid) {
+            this.props.onChange(event);
+        }
     }
 
     onRoomCodeFocus() {
@@ -33,12 +52,13 @@ export default class RoomCodeInput extends React.Component {
                     <Input className="mb-2 text-center text-uppercase"
                            type="text"
                            placeholder="Room Code"
-                           maxLength={8}
+                           maxLength={9}
+                           pattern={"[0-9A-Za-z]*"}
                            bsSize="lg"
-                           onChange={this.props.onChange}
+                           onChange={this.onRoomCodeChange}
                            onFocus={this.onRoomCodeFocus}
                            onBlur={this.onRoomCodeBlur}
-                           value={this.props.code}
+                           value={this.formatRoomCode(this.props.code)}
                     />
             </InputGroup>
         );
