@@ -1,7 +1,7 @@
 import React from "react";
 import {Container, Input, InputGroup, InputGroupAddon, InputGroupText} from "reactstrap";
 import "../assets/scss/index.scss";
-import logo from "../assets/icons/logo.svg";
+import logo from "../assets/images/logo.svg";
 import MainButton from "../components/index/MainButton";
 import RoomCodeInput from "../components/index/RoomCodeInput";
 
