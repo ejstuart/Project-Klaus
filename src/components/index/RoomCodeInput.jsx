@@ -33,7 +33,7 @@ export default class RoomCodeInput extends React.Component {
                     <Input className="mb-2 text-center text-uppercase"
                            type="text"
                            placeholder="Room Code"
-                           maxLength={12}
+                           maxLength={8}
                            bsSize="lg"
                            onChange={this.props.onChange}
                            onFocus={this.onRoomCodeFocus}
